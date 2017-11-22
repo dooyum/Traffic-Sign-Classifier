@@ -1,4 +1,4 @@
-#**Traffic Sign Recognition** 
+**Traffic Sign Recognition** 
 
 ---
 
@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/traffic_signs_exploration.pbg "Visualization"
+[image1]: ./examples/traffic_signs_exploration.png "Visualization"
 [image2]: ./examples/forward_gray.png "Gray Ahead Only Sign"
 [image3]: ./examples/forward.png "Ahead Only Sign"
 [image4]: ./traffic_signs/30.png "Traffic Sign 1"
@@ -25,11 +25,11 @@ The goals / steps of this project are the following:
 [image9]: ./examples/training_data.png "Training & Validation Accuracy"
 
 ---
-###Writeup / README
+Writeup / README
 
-Here is a link to my [project code](https://github.com/dooyum/Traffic-Sign-Classifier/Traffic_Sign_Classifier.ipynb)
+Here is a link to my [project code](https://github.com/dooyum/Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
-###Data Set Summary & Exploration
+Data Set Summary & Exploration
 
 I used the numpy library to calculate summary statistics of the traffic
 signs data set:
@@ -41,7 +41,7 @@ signs data set:
 ![alt text][image3]
 * The number of unique classes/labels in the data set is 43
 
-####Exploratory visualization of the dataset.
+***Exploratory visualization of the dataset.***
 
 Here is an exploratory visualization of the data set. It is a bar chart showing the number of examples in the training set belong to each class/label. It is interesting to note that the data is heavily skewed towards speed limit and stop signs.
 I considered normalizing the data for equal representation of the signs but the numbers represent real world occurences.
@@ -49,7 +49,7 @@ Since this is the case, it will not be bad for the model to predict commonly occ
 
 ![alt text][image1]
 
-###Design and Test of Model Architecture
+***Design and Test of Model Architecture***
 
 As a first step, I decided to convert the images to grayscale because the color of the signs are irrelevant to the information they convey i.e. a green stop sign is not different from a red one. This gives the model much less information to take into consideration while classifying the data.
 
@@ -64,7 +64,7 @@ As an improvement to the model, I plan on generating additional data by creating
 
 All the sample labels were tuned into one-hot tensors over the 43 classes.
 
-####Final model architecture
+***Final model architecture***
 
 My final model architecture was a modified LeNet Architecture. I chose to use LeNet as a basis because it performs well on the MNIST dataset which comprises of text based grayscaled images, which are similar to the normalized data. One of the main modifications I made to LeNet was to introduce two dropouts to prevent overfitting.
 
@@ -93,7 +93,7 @@ My final model consisted of the following layers:
  
 
 
-####Model Training
+****Model Training****
 
 To train the model, I used an Adam Optimizer to minimize the training loss.
 
@@ -116,18 +116,18 @@ The final values for my parameters were: learning rate - 0.001, batch-size - 128
 
 This was a good problem to address with a Convolutional Nueral Network because CNNs work well with image recognition. Each stage of a CNN extracts useful information (e.g. shapes that are only part by a particular sign) to pass on to the next stage. CNNs learn by discarding information that's not really vital to classifying the data e.g. The subtle shade/color of a sign matters much less that the areas of sharp contrast on the sign. A dropout is important in this case because in some epochs, unimportant aspects of the sign are left out of the data and it shows it has little bearing on the signs class.
 
-###Testing my Model on New Images
+***Testing my Model on New Images***
 
 Here are five German traffic signs that I found on the web:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
 
-The first image might be difficult to classify because "3" looks like "5" and it might be mistaken for an 80kmph sign.
-The second image might be difficult to classify because "6" looks like "8" and it might be mistaken for an 80kmph sign.
-The third image might be difficult to classify because the blue color is similar to the blue of the sky behind it.
-The fourth image should not be difficult to classify.
-The fifth image should not be difficult to classify.
+* The first image might be difficult to classify because "3" looks like "5" and it might be mistaken for an 80kmph sign.
+* The second image might be difficult to classify because "6" looks like "8" and it might be mistaken for an 80kmph sign.
+* The third image might be difficult to classify because the blue color is similar to the blue of the sky behind it.
+* The fourth image should not be difficult to classify.
+* The fifth image should not be difficult to classify.
 
 ####Prediction Accuracy
 
@@ -144,7 +144,7 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 94.2% and the training set of 99.9%
 
-####Prediction Probability
+****Prediction Probability****
 
 The code for making predictions on my final model is located in the 17th cell of the Ipython notebook.
 
@@ -197,11 +197,3 @@ For the fifth image, the model is almost completely sure that this is a Turn rig
 | .00	      			| Roundabout mandatory			 				|
 | .00				    | Speed limit (100 km/h)						|
 | .00				    | Right-of-way at the next intersection			|
-
-
-For the second image ... 
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
-
